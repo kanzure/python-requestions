@@ -129,7 +129,7 @@ def read_response(srequestion):
         value = get_and_del_attr(kwargs, key)
         temp_store[key] = value
 
-    response = requests.models.Response(**kwargs)
+    response = requests.models.Response()
 
     for (key, value) in temp_store.items():
         if key == "content":

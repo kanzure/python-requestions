@@ -18,7 +18,8 @@ def replace_body_with_data(things):
 
 def delete_blank_keys_from(some_dict):
     """
-    Deletes keys that have None values in the given dictionary.
+    Deletes from the given dictionary any key/value pair where the value
+    evaluates to False, including False, '', {}, [], and (,).
     """
     for key in some_dict.keys():
         if not some_dict[key]:

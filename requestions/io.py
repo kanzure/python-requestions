@@ -123,24 +123,17 @@ def read_response(srequestion):
         if avoidable_attribute in kwargs.keys():
             del kwargs[avoidable_attribute]
 
-    temp_store = {}
-
-    for key in attributes:
-        value = get_and_del_attr(kwargs, key)
-        temp_store[key] = value
-
     response = requests.models.Response()
 
-    for (key, value) in temp_store.items():
+    for (key, value) in kwargs.items():
         if key == "content":
             response._content = value
+        elif key == "request":
+            request = read_request(json.dumps(value))
+            if request:
+                response.request = request
         else:
             setattr(response, key, value)
-
-    if temp_store["request"]:
-        request = read_request(json.dumps(temp_store["request"]))
-        if request:
-            response.request = request
 
     return response
 

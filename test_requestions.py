@@ -3,10 +3,7 @@
 import json
 import unittest
 
-try:
-    import careful_requests as requests
-except ImportError:
-    import requests
+import requests
 
 import requestions
 

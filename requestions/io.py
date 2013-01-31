@@ -5,10 +5,7 @@ requestions - requests serialization library
 
 import json
 
-try:
-    import careful_requests as requests
-except ImportError:
-    import requests
+import requests
 
 from .utils import (
     replace_body_with_data,

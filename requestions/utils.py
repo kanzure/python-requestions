@@ -4,7 +4,10 @@ Minor functions to assist with (de)serializing.
 """
 
 # for dealing with requests.models.Response.request.body
-import urlparse
+try:
+    import urlparse
+except ImportError: # py3k
+    import urllib.parse as urlparse
 
 def replace_body_with_data(things):
     """

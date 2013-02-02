@@ -129,7 +129,11 @@ class TestHttpetrifiedDecorator(unittest.TestCase):
     @httpetrified("tests/data/jsonip-response.json")
     def test_basic_decorator(self):
         response = requests.get("http://jsonip.com/")
-        self.assertEqual(response.json()["ip"], "66.68.190.37")
+        try:
+            jsonstuff = resposne.json()
+        except Exception as exception:
+            jsonstuff = response.json
+        self.assertEqual(jsonstuff["ip"], "66.68.190.37")
 
 if __name__ == "__main__":
     unittest.main()

@@ -51,6 +51,7 @@ Save responses in a json file, then use them later to make unit testing not so m
 
 ## Changelog
 
+* 0.0.4 - fix test for both requests==0.14.2 and requests>=1.0.3
 * 0.0.3 - httpetrified decorator
 * 0.0.1 - initial commit
 

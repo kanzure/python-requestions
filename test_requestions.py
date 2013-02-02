@@ -130,7 +130,7 @@ class TestHttpetrifiedDecorator(unittest.TestCase):
     def test_basic_decorator(self):
         response = requests.get("http://jsonip.com/")
         try:
-            jsonstuff = resposne.json()
+            jsonstuff = response.json()
         except Exception as exception:
             jsonstuff = response.json
         self.assertEqual(jsonstuff["ip"], "66.68.190.37")

@@ -1,6 +1,6 @@
 # Requestions
 
-Requestions is a serialization library for [Requests](https://github.com/kennethreitz/requests) using JSON.
+Requestions is a serialization library for [Requests](https://github.com/kennethreitz/requests) using JSON. Also, requestions includes a decorator called httpetrified for storing responses and replaying them in the future for HTTP testing without the live interwebz.
 
 ## Installing
 
@@ -30,13 +30,29 @@ serialized_request = requestions.write_request(original_request)
 request = requestions.read_request(serialized_request)
 ```
 
+## Decorator
+
+Save responses in a json file, then use them later to make unit testing not so miserable.
+
+``` python
+    import json
+    import requests
+    from requestions import httpetrified
+
+    def get_current_ip_address(self):
+        "Abuses some poor sap's ip address detection service."
+        response = requests.get("http://jsonip.com")
+        return response.json()["ip"]
+
+    @httpetrified("samples/helpers/get-current-ip_address.json")
+    def test_get_current_ip_address(self):
+        self.assertEqual("127.0.0.1", get_current_ip_address())
+```
+
 ## Changelog
 
+* 0.0.3 - httpetrified decorator
 * 0.0.1 - initial commit
-
-## TODO
-
-* hook up with [HTTPretty](https://github.com/gabrielfalcao/HTTPretty) to make unit testing suck less.
 
 ## License
 

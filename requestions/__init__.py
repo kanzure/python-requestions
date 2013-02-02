@@ -15,3 +15,6 @@ from .io import (
     read_request,
     read_response,
 )
+
+from .httpetrified import *
+

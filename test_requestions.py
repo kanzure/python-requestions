@@ -2,10 +2,11 @@
 
 import json
 import unittest
-
 import requests
 
 import requestions
+
+from requestions import httpetrified
 
 class TestRequestSerialization(unittest.TestCase):
     def test_write_request_simple(self):
@@ -123,6 +124,12 @@ class TestUtilities(unittest.TestCase):
         self.assertEqual(value1, "value1")
         self.assertNotIn("key1", sample.keys())
         self.assertEqual(0, len(sample.keys()))
+
+class TestHttpetrifiedDecorator(unittest.TestCase):
+    @httpetrified("tests/data/jsonip-response.json")
+    def test_basic_decorator(self):
+        response = requests.get("http://jsonip.com/")
+        self.assertEqual(response.json()["ip"], "66.68.190.37")
 
 if __name__ == "__main__":
     unittest.main()

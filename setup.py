@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="requestions",
-    version="0.0.2",
+    version="0.0.3",
     url="https://github.com/kanzure/python-requestions",
     license="BSD",
     author="Bryan Bishop",
@@ -13,7 +13,7 @@ setup(
     packages=["requestions"],
     zip_safe=False,
     include_package_data=True,
-    install_requires=["requests>=0.14.2"],
+    install_requires=["requests>=0.14.2", "httpretty>=0"],
     platforms="any",
     classifiers=[
         "Environment :: Web Environment",

@@ -10,7 +10,6 @@ import requests
 from .utils import (
     replace_body_with_data,
     delete_blank_keys_from,
-    get_and_del_attr,
 )
 
 def write_request(obj, return_string=True):

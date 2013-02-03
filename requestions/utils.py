@@ -28,15 +28,3 @@ def delete_blank_keys_from(some_dict):
         if not some_dict[key]:
             del some_dict[key]
 
-def get_and_del_attr(some_dict, key):
-    """
-    Gets the value for some key, then removes the key from the dictionary.
-    Returns the value.
-    """
-    value = None
-    try:
-        value = some_dict.pop(key)
-    except:
-        pass
-    return value
-

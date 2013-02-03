@@ -112,19 +112,6 @@ class TestUtilities(unittest.TestCase):
         for key in blank_keys:
             self.assertNotIn(key, sample.keys())
 
-    def test_get_and_del_attr(self):
-        sample = {
-            "key0": "value0",
-            "key1": "value1",
-        }
-        value0 = requestions.utils.get_and_del_attr(sample, "key0")
-        self.assertEqual(value0, "value0")
-        self.assertNotIn("key0", sample.keys())
-        value1 = requestions.utils.get_and_del_attr(sample, "key1")
-        self.assertEqual(value1, "value1")
-        self.assertNotIn("key1", sample.keys())
-        self.assertEqual(0, len(sample.keys()))
-
 class TestHttpetrifiedDecorator(unittest.TestCase):
     @httpetrified("tests/data/jsonip-response.json")
     def test_basic_decorator(self):

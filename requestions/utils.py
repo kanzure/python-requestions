@@ -34,7 +34,9 @@ def get_and_del_attr(some_dict, key):
     Returns the value.
     """
     value = None
-    if key in list(some_dict.keys()):
-        value = some_dict[key]
-        del some_dict[key]
+    try:
+        value = some_dict.pop(key)
+    except:
+        pass
     return value
+

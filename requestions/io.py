@@ -112,14 +112,6 @@ def read_response(srequestion):
         "cookies",
     ]
 
-    avoid_attributes = [
-        "apparent_encoding",
-    ]
-
-    for avoidable_attribute in avoid_attributes:
-        if avoidable_attribute in kwargs.keys():
-            del kwargs[avoidable_attribute]
-
     response = requests.models.Response()
 
     for (key, value) in kwargs.items():

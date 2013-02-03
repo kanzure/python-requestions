@@ -35,18 +35,18 @@ request = requestions.read_request(serialized_request)
 Save responses in a json file, then use them later to make unit testing not so miserable.
 
 ``` python
-    import json
-    import requests
-    from requestions import httpetrified
+import json
+import requests
+from requestions import httpetrified
 
-    def get_current_ip_address(self):
-        "Abuses some poor sap's ip address detection service."
-        response = requests.get("http://jsonip.com")
-        return response.json()["ip"]
+def get_current_ip_address(self):
+    "Abuses some poor sap's ip address detection service."
+    response = requests.get("http://jsonip.com")
+    return response.json()["ip"]
 
-    @httpetrified("samples/helpers/get-current-ip_address.json")
-    def test_get_current_ip_address(self):
-        self.assertEqual("127.0.0.1", get_current_ip_address())
+@httpetrified("samples/helpers/jsonip-request.json")
+def test_get_current_ip_address(self):
+    self.assertEqual("127.0.0.1", get_current_ip_address())
 ```
 
 ## Changelog

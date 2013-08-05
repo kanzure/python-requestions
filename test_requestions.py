@@ -112,6 +112,26 @@ class TestUtilities(unittest.TestCase):
         for key in blank_keys:
             self.assertNotIn(key, sample.keys())
 
+    def test_convert_to_dict_basic(self):
+        basic_input = {}
+        output = requestions.utils.convert_to_dict(basic_input)
+        self.assertEqual(basic_input, output)
+
+    def test_convert_to_dict_with_insensitive(self):
+        basic_input = {
+            "key": "value",
+            "headers": requests.structures.CaseInsensitiveDict(data={"key": "value"}),
+        }
+
+        output = requestions.utils.convert_to_dict(basic_input)
+
+        self.assertTrue("key" in output)
+        self.assertTrue("headers" in output)
+
+        self.assertTrue("key" in output["headers"])
+
+        self.assertNotEqual(type(output["headers"]), requests.structures.CaseInsensitiveDict)
+
 class TestHttpetrifiedDecorator(unittest.TestCase):
     @httpetrified("tests/data/jsonip-response.json")
     def test_basic_decorator(self):

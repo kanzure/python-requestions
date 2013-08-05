@@ -28,3 +28,17 @@ def delete_blank_keys_from(some_dict):
         if not some_dict[key]:
             del some_dict[key]
 
+def convert_to_dict(possibly_insensitive_dict):
+    """
+    Walk the tree of a CaseInsensitiveDict and convert all instances of
+    CaseInsensitiveDict into dictionaries.
+    """
+    output = dict()
+
+    if hasattr(possibly_insensitive_dict, "items"):
+        for (key, value) in possibly_insensitive_dict.items():
+            output[key] = convert_to_dict(value)
+    else:
+        output = possibly_insensitive_dict
+
+    return output

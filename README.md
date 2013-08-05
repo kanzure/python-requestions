@@ -51,6 +51,7 @@ def test_get_current_ip_address(self):
 
 ## Changelog
 
+* 0.0.7 - fix CaseInsensitiveDict problem
 * 0.0.5 - fix broken setup.py, gah
 * 0.0.4 - fix test for both requests==0.14.2 and requests>=1.0.3
 * 0.0.3 - httpetrified decorator

@@ -41,7 +41,7 @@ def write_request(obj, return_string=True):
     replace_body_with_data(serialization)
 
     if return_string:
-        return json.dumps(serialization)
+        return json.dumps(dict(serialization))
     elif not return_string:
         return serialization
 
@@ -75,7 +75,7 @@ def write_response(obj, return_string=True):
     replace_body_with_data(serialization)
 
     if return_string:
-        return json.dumps(serialization)
+        return json.dumps(dict(serialization))
     elif not return_string:
         return serialization
 

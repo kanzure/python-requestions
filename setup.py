@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="requestions",
-    version="0.0.5",
+    version="0.0.6",
     url="https://github.com/kanzure/python-requestions",
     license="BSD",
     author="Bryan Bishop",

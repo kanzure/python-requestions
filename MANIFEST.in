@@ -1,1 +1,11 @@
 include README.md
+include *.md
+include *.rst
+include *.txt
+
+include ChangeLog
+include MakeFile
+
+global-exclude *.pyc
+global-exclude .gitignore
+global-exclude .DS_Store

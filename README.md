@@ -71,6 +71,8 @@ def test_get_current_ip_address(self):
   single test to cause multiple requests to be made that can all be mocked
   simultaneously.
 
+* support streaming http responses like HTTPretty does
+
 ## License
 
 BSD.

@@ -61,6 +61,16 @@ def test_get_current_ip_address(self):
 
 * [requests-vcr](https://github.com/sigmavirus24/requests-vcr)
 
+## Related
+
+* [HTTPretty](https://github.com/gabrielfalcao/HTTPretty)
+
+## TODO
+
+* support multiple requests/responses in a single json file. This will allow a
+  single test to cause multiple requests to be made that can all be mocked
+  simultaneously.
+
 ## License
 
 BSD.
